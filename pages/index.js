@@ -15,7 +15,7 @@ import {
   Quartile, shuffleArray
 } from "@/components/utils";
 import {Button, ControlGroup, InputGroup, Intent, Label, OverlayToaster, Position, Tag} from "@blueprintjs/core";
-import {Calendar, Cube, SeriesAdd, User, Percentage, BankAccount} from "@blueprintjs/icons";
+import {Calendar, Cube, SeriesAdd, User, Percentage, BankAccount, WarningSign} from "@blueprintjs/icons";
 import StakePoolSelector from "../components/StakePoolSelector";
 import InfoHoverComponent from "../components/InfoHoverComponent";
 import {infoHovers, infoSections, uiText} from "@/components/infos";
@@ -816,8 +816,10 @@ class RewardCalculator extends React.Component {
         // 	this.setState({delegatorsStake: val},() => {this.recalcPending = true})
         // 	break
       case "total-pool-stake":
-        const poolStake = val - this.state.userAmount
-        this.setState({poolStake},() => {this.recalcPending = true})
+        const _val = Math.max(val, this.state.poolPledge)
+        const poolStake_plus_userAmount = _val
+        const poolStake = poolStake_plus_userAmount - this.state.userAmount
+        this.setState({poolStake, poolStake_plus_userAmount},() => {this.recalcPending = true})
         break
       case "pool-fixed-costs":
         this.setState({poolFixedCost: val},() => {this.recalcPending = true})
@@ -1152,103 +1154,116 @@ class RewardCalculator extends React.Component {
                     <div className={`${this.state.isUIStakePoolsShown ? "" : "hidden"} mt-8 grid gap-4 overflow-hidden md:grid-cols-3`}>
 
 
-
-                      <div key="stake-pool-1" className={`
-										flex flex-col p-4 rounded-xl border-2 
+                      <div className="flex flex-col">
+                        <div key="stake-pool-1" className={`
+										p-4 rounded-xl border-2 
 										${this.state.stakePoolNSelected === 1 ? "border-gray-700" : ""}
 										${this.state.stakePool_1_Stats.isRedFlag ? "bg-red-300" : "bg-gray-700/5"}
 									`}
-                           onClick={() => {
-                             // this.setState({stakePoolNSelected: 1})
+                             onClick={() => {
+                               // this.setState({stakePoolNSelected: 1})
 
-                             const poolBech32 = this.state.stakePool_1_Stats?.poolBech32
-                             if (poolBech32 && this.state.stakePoolNSelected !== 1) {
-                               this.setState({selectedPoolBech32: poolBech32, stakePoolNSelected: 1},
-                                   () => this.updateSelectedPoolParams().then(() => {}))
+                               const poolBech32 = this.state.stakePool_1_Stats?.poolBech32
+                               if (poolBech32 && this.state.stakePoolNSelected !== 1) {
+                                 this.setState({selectedPoolBech32: poolBech32, stakePoolNSelected: 1},
+                                     () => this.updateSelectedPoolParams().then(() => {}))
+                               }
+
                              }
+                             }>
 
-                           }
-                           }>
-
-                        <div className="mb-4">
-                          <p className="mb-2">Select a Pool Ticker #1:</p>
-                          <StakePoolSelector stakePoolN={1} allStakePoolInfo={this.state.allStakePoolInfo} handlePoolSelect={this.handlePoolSelect}/>
-                        </div>
+                          <div className="mb-4">
+                            <p className="mb-2">Select a Pool Ticker #1:</p>
+                            <StakePoolSelector stakePoolN={1} allStakePoolInfo={this.state.allStakePoolInfo} handlePoolSelect={this.handlePoolSelect}/>
+                          </div>
 
 
-                        <div className="grid gap-1 grid-cols-3 py-2 text-left border-t border-b border-gray-300">
-                          <div className="col-span-2"><Cube size={14} className="mr-2"/> Blocks Minted</div>
-                          <div className="text-center">{
-                            this.state.stakePool_1_Stats?.lifetimeBlocks !== undefined
-                                ?
-                                (this.state.stakePool_1_Stats?.lifetimeBlocks).toLocaleString("en-US")
-                                :
-                                null
-                          }</div>
+                          <div className="grid gap-1 grid-cols-3 py-2 text-left border-t border-b border-gray-300">
+                            <div className="col-span-2"><Cube size={14} className="mr-2"/> Blocks Minted</div>
+                            <div className="text-center">{
+                              this.state.stakePool_1_Stats?.lifetimeBlocks !== undefined
+                                  ?
+                                  (this.state.stakePool_1_Stats?.lifetimeBlocks).toLocaleString("en-US")
+                                  :
+                                  null
+                            }</div>
 
-                          <div className="col-span-2"><Calendar size={14} className="mr-2"/> Years Active</div>
-                          <div className="text-center">{
-                            this.state.stakePool_1_Stats?.yearsActive !== undefined
-                                ?
-                                (this.state.stakePool_1_Stats?.yearsActive).toLocaleString("en-US", {maximumFractionDigits: 1})
-                                :
-                                null
-                          }</div>
+                            <div className="col-span-2"><Calendar size={14} className="mr-2"/> Years Active</div>
+                            <div className="text-center">{
+                              this.state.stakePool_1_Stats?.yearsActive !== undefined
+                                  ?
+                                  (this.state.stakePool_1_Stats?.yearsActive).toLocaleString("en-US", {maximumFractionDigits: 1})
+                                  :
+                                  null
+                            }</div>
 
-                          <div className="col-span-2"><User size={14} className="mr-2"/> # Delegators</div>
-                          <div className="text-center">{
-                            this.state.stakePool_1_Stats?.nDelegators !== undefined
-                                ?
-                                (this.state.stakePool_1_Stats?.nDelegators).toLocaleString("en-US", {maximumFractionDigits: 0})
-                                :
-                                null
+                            <div className="col-span-2"><User size={14} className="mr-2"/> # Delegators</div>
+                            <div className="text-center">{
+                              this.state.stakePool_1_Stats?.nDelegators !== undefined
+                                  ?
+                                  (this.state.stakePool_1_Stats?.nDelegators).toLocaleString("en-US", {maximumFractionDigits: 0})
+                                  :
+                                  null
                             }
+                            </div>
+
+                            <div className="col-span-2"><Percentage size={14} className="mr-2"/> Margin</div>
+                            <div className="text-center">{
+                              this.state.stakePool_1_Stats?.poolVariableFee !== undefined
+                                  ?
+                                  (this.state.stakePool_1_Stats?.poolVariableFee).toLocaleString("en-US", {maximumFractionDigits: 1})
+                                  :
+                                  null
+                            }
+                            </div>
+
+                            <div className="col-span-2"><BankAccount size={14} className="mr-2"/> Min Fee</div>
+                            <div className="text-center">{
+                              this.state.stakePool_1_Stats?.poolFixedCost !== undefined
+                                  ?
+                                  (this.state.stakePool_1_Stats?.poolFixedCost).toLocaleString("en-US", {maximumFractionDigits: 0})
+                                  :
+                                  null
+                            }
+                            </div>
+
                           </div>
 
-                          <div className="col-span-2"><Percentage size={14} className="mr-2"/> Margin</div>
-                          <div className="text-center">{
-                            this.state.stakePool_1_Stats?.poolVariableFee !== undefined
+                          <div className="flex flex-row justify-between mt-8">
+                            <p className=""><SeriesAdd size={14} className="mr-2"/> Expected Return</p>
+                            <InfoHoverComponent>{infoHovers["monte_carlo"][this.state.lang]}</InfoHoverComponent>
+                          </div>
+
+
+                          {
+                            // Only show expected return if there is something to show
+                            this.state.stakePool_1_Stats?.delegatorsReward_av !== undefined
                                 ?
-                                (this.state.stakePool_1_Stats?.poolVariableFee).toLocaleString("en-US", {maximumFractionDigits: 1})
+                                <div>
+                                  <div className="grid gap-2 grid-cols-3 bg-gray-900/5 -ml-2 -mr-2 mt-1 py-4 px-2 text-center bg-blue-primary rounded-md">
+                                    <div className="font-medium">Lower</div>
+                                    <div className="font-medium">Average</div>
+                                    <div className="font-medium">Upper</div>
+                                    <div>{`${(this.state.stakePool_1_Stats?.delegatorsReward_lower / this.state.stakePool_1_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
+                                    <div>{`${(this.state.stakePool_1_Stats?.delegatorsReward_av / this.state.stakePool_1_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
+                                    <div>{`${(this.state.stakePool_1_Stats?.delegatorsReward_upper / this.state.stakePool_1_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
+                                  </div>
+                                  <div className="mt-2 text-xs">Stake pool parameters are shown in the section below</div>
+                                </div>
+
                                 :
                                 null
                           }
-                          </div>
-
-                          <div className="col-span-2"><BankAccount size={14} className="mr-2"/> Min Fee</div>
-                          <div className="text-center">{
-                            this.state.stakePool_1_Stats?.poolFixedCost !== undefined
-                                ?
-                                (this.state.stakePool_1_Stats?.poolFixedCost).toLocaleString("en-US", {maximumFractionDigits: 0})
-                                :
-                                null
-                          }
-                          </div>
 
                         </div>
-
-                        <div className="flex flex-row justify-between mt-8">
-                          <p className=""><SeriesAdd size={14} className="mr-2"/> Expected Return</p>
-                          <InfoHoverComponent>{infoHovers["monte_carlo"][this.state.lang]}</InfoHoverComponent>
-                        </div>
-
 
                         {
-                          // Only show expected return if there is something to show
-                          this.state.stakePool_1_Stats?.delegatorsReward_av !== undefined
+                          this.state.stakePool_1_Stats.isRedFlag
                               ?
-                              <div>
-                                <div className="grid gap-2 grid-cols-3 bg-gray-900/5 -ml-2 -mr-2 mt-1 py-4 px-2 text-center bg-blue-primary rounded-md">
-                                  <div className="font-medium">Lower</div>
-                                  <div className="font-medium">Average</div>
-                                  <div className="font-medium">Upper</div>
-                                  <div>{`${(this.state.stakePool_1_Stats?.delegatorsReward_lower / this.state.stakePool_1_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
-                                  <div>{`${(this.state.stakePool_1_Stats?.delegatorsReward_av / this.state.stakePool_1_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
-                                  <div>{`${(this.state.stakePool_1_Stats?.delegatorsReward_upper / this.state.stakePool_1_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
-                                </div>
-                                <div className="mt-2 text-xs">Stake pool parameters are shown in the section below</div>
-                              </div>
-
+                              <p className="mt-2 mx-2 text-red-400 font-medium">
+                                <WarningSign size={14} intent={Intent.DANGER} className="mr-1"/>
+                                This pool does not meet its pledge, hence the pool will not generate any rewards
+                              </p>
                               :
                               null
                         }
@@ -1256,93 +1271,112 @@ class RewardCalculator extends React.Component {
                       </div>
 
 
-                      <div key="stake-pool-2" className={
-                        `flex flex-col bg-gray-700/5 p-4 rounded-xl border-2 
+                      <div className="flex flex-col">
+
+                        <div key="stake-pool-2" className={
+                          `bg-gray-700/5 p-4 rounded-xl border-2 
                         ${this.state.stakePoolNSelected === 2 ? "border-gray-700" : ""}
                         ${this.state.stakePool_2_Stats.isRedFlag ? "bg-red-300" : "bg-gray-700/5"}
                         `}
-                           onClick={() => {
-                             // this.setState({stakePoolNSelected: 1})
+                             onClick={() => {
+                               // this.setState({stakePoolNSelected: 1})
 
-                             const poolBech32 = this.state.stakePool_2_Stats?.poolBech32
-                             if (poolBech32 && this.state.stakePoolNSelected !== 2) {
-                               this.setState({selectedPoolBech32: poolBech32, stakePoolNSelected: 2},
-                                   () => this.updateSelectedPoolParams().then(() => {}))
+                               const poolBech32 = this.state.stakePool_2_Stats?.poolBech32
+                               if (poolBech32 && this.state.stakePoolNSelected !== 2) {
+                                 this.setState({selectedPoolBech32: poolBech32, stakePoolNSelected: 2},
+                                     () => this.updateSelectedPoolParams().then(() => {}))
+                               }
+
                              }
+                             }>
 
-                           }
-                           }>
-
-                        <div className="mb-4">
-                          <p className="mb-2">Select a Pool Ticker #2:</p>
-                          <StakePoolSelector stakePoolN={2} allStakePoolInfo={this.state.allStakePoolInfo} handlePoolSelect={this.handlePoolSelect}/>
-                        </div>
+                          <div className="mb-4">
+                            <p className="mb-2">Select a Pool Ticker #2:</p>
+                            <StakePoolSelector stakePoolN={2} allStakePoolInfo={this.state.allStakePoolInfo} handlePoolSelect={this.handlePoolSelect}/>
+                          </div>
 
 
-                        <div className="grid gap-1 grid-cols-3 py-2 text-left border-t border-b border-gray-300">
-                          <div className="col-span-2"><Cube size={14} className="mr-2"/> Blocks Minted</div>
-                          <div className="text-center">{
-                            this.state.stakePool_2_Stats?.lifetimeBlocks !== undefined
+                          <div className="grid gap-1 grid-cols-3 py-2 text-left border-t border-b border-gray-300">
+                            <div className="col-span-2"><Cube size={14} className="mr-2"/> Blocks Minted</div>
+                            <div className="text-center">{
+                              this.state.stakePool_2_Stats?.lifetimeBlocks !== undefined
+                                  ?
+                                  (this.state.stakePool_2_Stats?.lifetimeBlocks).toLocaleString("en-US")
+                                  :
+                                  null
+                            }</div>
+
+                            <div className="col-span-2"><Calendar size={14} className="mr-2"/> Years Active</div>
+                            <div className="text-center">{
+                              this.state.stakePool_2_Stats?.yearsActive !== undefined
+                                  ?
+                                  (this.state.stakePool_2_Stats?.yearsActive).toLocaleString("en-US", {maximumFractionDigits: 1})
+                                  :
+                                  null
+                            }</div>
+
+                            <div className="col-span-2"><User size={14} className="mr-2"/> # Delegators</div>
+                            <div className="text-center">{
+                              this.state.stakePool_2_Stats?.nDelegators !== undefined
+                                  ?
+                                  (this.state.stakePool_2_Stats?.nDelegators).toLocaleString("en-US", {maximumFractionDigits: 0})
+                                  :
+                                  null
+
+                            }</div>
+
+                            <div className="col-span-2"><Percentage size={14} className="mr-2"/> Margin</div>
+                            <div className="text-center">{
+                              this.state.stakePool_2_Stats?.poolVariableFee !== undefined
+                                  ?
+                                  (this.state.stakePool_2_Stats?.poolVariableFee).toLocaleString("en-US", {maximumFractionDigits: 1})
+                                  :
+                                  null
+                            }
+                            </div>
+
+                            <div className="col-span-2"><BankAccount size={14} className="mr-2"/> Min Fee</div>
+                            <div className="text-center">{
+                              this.state.stakePool_2_Stats?.poolFixedCost !== undefined
+                                  ?
+                                  (this.state.stakePool_2_Stats?.poolFixedCost).toLocaleString("en-US", {maximumFractionDigits: 0})
+                                  :
+                                  null
+                            }
+                            </div>
+
+                          </div>
+
+                          <p className="mt-8"><SeriesAdd size={14} className="mr-2"/> Expected Return</p>
+                          {
+                            // Only show expected return if there is something to show
+                            this.state.stakePool_2_Stats?.delegatorsReward_av !== undefined
                                 ?
-                                (this.state.stakePool_2_Stats?.lifetimeBlocks).toLocaleString("en-US")
-                                :
-                                null
-                          }</div>
+                                <div>
+                                  <div className="grid gap-2 grid-cols-3 bg-gray-900/5 -ml-2 -mr-2 mt-1 py-4 px-2 text-center bg-blue-primary rounded-md">
+                                    <div className="font-medium">Lower</div>
+                                    <div className="font-medium">Average</div>
+                                    <div className="font-medium">Upper</div>
+                                    <div>{`${(this.state.stakePool_2_Stats?.delegatorsReward_lower / this.state.stakePool_2_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
+                                    <div>{`${(this.state.stakePool_2_Stats?.delegatorsReward_av / this.state.stakePool_2_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
+                                    <div>{`${(this.state.stakePool_2_Stats?.delegatorsReward_upper / this.state.stakePool_2_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
+                                  </div>
+                                  <div className="mt-2 text-xs">Stake pool parameters are shown in the section below</div>
+                                </div>
 
-                          <div className="col-span-2"><Calendar size={14} className="mr-2"/> Years Active</div>
-                          <div className="text-center">{
-                            this.state.stakePool_2_Stats?.yearsActive !== undefined
-                                ?
-                                (this.state.stakePool_2_Stats?.yearsActive).toLocaleString("en-US", {maximumFractionDigits: 1})
-                                :
-                                null
-                          }</div>
-
-                          <div className="col-span-2"><User size={14} className="mr-2"/> # Delegators</div>
-                          <div className="text-center">{
-                            this.state.stakePool_2_Stats?.nDelegators !== undefined
-                                ?
-                                (this.state.stakePool_2_Stats?.nDelegators).toLocaleString("en-US", {maximumFractionDigits: 0})
-                                :
-                                null
-
-                          }</div>
-
-                          <div className="col-span-2"><Percentage size={14} className="mr-2"/> Margin</div>
-                          <div className="text-center">{
-                            this.state.stakePool_2_Stats?.poolVariableFee !== undefined
-                                ?
-                                (this.state.stakePool_2_Stats?.poolVariableFee).toLocaleString("en-US", {maximumFractionDigits: 1})
                                 :
                                 null
                           }
-                          </div>
-
-                          <div className="col-span-2"><BankAccount size={14} className="mr-2"/> Min Fee</div>
-                          <div className="text-center">{
-                            this.state.stakePool_2_Stats?.poolFixedCost !== undefined
-                                ?
-                                (this.state.stakePool_2_Stats?.poolFixedCost).toLocaleString("en-US", {maximumFractionDigits: 0})
-                                :
-                                null
-                          }
-                          </div>
 
                         </div>
 
-                        <p className="mt-8"><SeriesAdd size={14} className="mr-2"/> Expected Return</p>
                         {
-                          // Only show expected return if there is something to show
-                          this.state.stakePool_2_Stats?.delegatorsReward_av !== undefined
+                          this.state.stakePool_2_Stats.isRedFlag
                               ?
-                              <div className="grid gap-2 grid-cols-3 bg-gray-900/5 -ml-2 -mr-2 mt-1 py-4 px-2 text-center bg-blue-primary rounded-md">
-                                <div className="font-medium">Lower</div>
-                                <div className="font-medium">Average</div>
-                                <div className="font-medium">Upper</div>
-                                <div>{`${(this.state.stakePool_2_Stats?.delegatorsReward_lower / this.state.stakePool_2_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
-                                <div>{`${(this.state.stakePool_2_Stats?.delegatorsReward_av / this.state.stakePool_2_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
-                                <div>{`${(this.state.stakePool_2_Stats?.delegatorsReward_upper / this.state.stakePool_2_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
-                              </div>
+                              <p className="mt-2 mx-2 text-red-400 font-medium">
+                                <WarningSign size={14} intent={Intent.DANGER} className="mr-1"/>
+                                This pool does not meet its pledge, hence the pool will not generate any rewards
+                              </p>
                               :
                               null
                         }
@@ -1350,103 +1384,114 @@ class RewardCalculator extends React.Component {
                       </div>
 
 
-
-
-
-                      <div key="stake-pool-3" className={
-                        `flex flex-col bg-gray-700/5 p-4 rounded-xl border-2 
+                      <div className="flex flex-col">
+                        <div key="stake-pool-3" className={
+                          `bg-gray-700/5 p-4 rounded-xl border-2 
                         ${this.state.stakePoolNSelected === 3 ? "border-gray-700" : ""}
                         ${this.state.stakePool_3_Stats.isRedFlag ? "bg-red-300" : "bg-gray-700/5"}
                         `}
-                           onClick={() => {
-                             // this.setState({stakePoolNSelected: 1})
+                             onClick={() => {
+                               // this.setState({stakePoolNSelected: 1})
 
-                             const poolBech32 = this.state.stakePool_3_Stats?.poolBech32
-                             if (poolBech32 && this.state.stakePoolNSelected !== 3) {
-                               this.setState({selectedPoolBech32: poolBech32, stakePoolNSelected: 3},
-                                   () => this.updateSelectedPoolParams().then(() => {}))
+                               const poolBech32 = this.state.stakePool_3_Stats?.poolBech32
+                               if (poolBech32 && this.state.stakePoolNSelected !== 3) {
+                                 this.setState({selectedPoolBech32: poolBech32, stakePoolNSelected: 3},
+                                     () => this.updateSelectedPoolParams().then(() => {}))
+                               }
+
                              }
+                             }>
 
-                           }
-                           }>
+                          <div className="mb-4">
+                            <p className="mb-2">Select a Pool Ticker #3:</p>
+                            <StakePoolSelector stakePoolN={3} allStakePoolInfo={this.state.allStakePoolInfo} handlePoolSelect={this.handlePoolSelect}/>
+                          </div>
 
-                        <div className="mb-4">
-                          <p className="mb-2">Select a Pool Ticker #3:</p>
-                          <StakePoolSelector stakePoolN={3} allStakePoolInfo={this.state.allStakePoolInfo} handlePoolSelect={this.handlePoolSelect}/>
-                        </div>
+                          <div className="grid gap-1 grid-cols-3 py-2 text-left border-t border-b border-gray-300">
+                            <div className="col-span-2"><Cube size={14} className="mr-2"/> Blocks Minted</div>
+                            <div className="text-center">{
+                              this.state.stakePool_3_Stats?.lifetimeBlocks !== undefined
+                                  ?
+                                  (this.state.stakePool_3_Stats?.lifetimeBlocks).toLocaleString("en-US")
+                                  :
+                                  null
+                            }</div>
 
-                        <div className="grid gap-1 grid-cols-3 py-2 text-left border-t border-b border-gray-300">
-                          <div className="col-span-2"><Cube size={14} className="mr-2"/> Blocks Minted</div>
-                          <div className="text-center">{
-                            this.state.stakePool_3_Stats?.lifetimeBlocks !== undefined
+                            <div className="col-span-2"><Calendar size={14} className="mr-2"/> Years Active</div>
+                            <div className="text-center">{
+                              this.state.stakePool_3_Stats?.yearsActive !== undefined
+                                  ?
+                                  (this.state.stakePool_3_Stats?.yearsActive).toLocaleString("en-US", {maximumFractionDigits: 1})
+                                  :
+                                  null
+                            }</div>
+
+                            <div className="col-span-2"><User size={14} className="mr-2"/> # Delegators</div>
+                            <div className="text-center">{
+                              this.state.stakePool_3_Stats?.nDelegators !== undefined
+                                  ?
+                                  (this.state.stakePool_3_Stats?.nDelegators).toLocaleString("en-US", {maximumFractionDigits: 0})
+                                  :
+                                  null
+
+                            }</div>
+
+                            <div className="col-span-2"><Percentage size={14} className="mr-2"/> Margin</div>
+                            <div className="text-center">{
+                              this.state.stakePool_3_Stats?.poolVariableFee !== undefined
+                                  ?
+                                  (this.state.stakePool_3_Stats?.poolVariableFee).toLocaleString("en-US", {maximumFractionDigits: 1})
+                                  :
+                                  null
+                            }
+                            </div>
+
+                            <div className="col-span-2"><BankAccount size={14} className="mr-2"/> Min Fee</div>
+                            <div className="text-center">{
+                              this.state.stakePool_3_Stats?.poolFixedCost !== undefined
+                                  ?
+                                  (this.state.stakePool_3_Stats?.poolFixedCost).toLocaleString("en-US", {maximumFractionDigits: 0})
+                                  :
+                                  null
+                            }
+                            </div>
+
+                          </div>
+
+                          <p className="mt-8"><SeriesAdd size={14} className="mr-2"/> Expected Return</p>
+                          {
+                            // Only show expected return if there is something to show
+                            this.state.stakePool_3_Stats?.delegatorsReward_av !== undefined
                                 ?
-                                (this.state.stakePool_3_Stats?.lifetimeBlocks).toLocaleString("en-US")
-                                :
-                                null
-                          }</div>
-
-                          <div className="col-span-2"><Calendar size={14} className="mr-2"/> Years Active</div>
-                          <div className="text-center">{
-                            this.state.stakePool_3_Stats?.yearsActive !== undefined
-                                ?
-                                (this.state.stakePool_3_Stats?.yearsActive).toLocaleString("en-US", {maximumFractionDigits: 1})
-                                :
-                                null
-                          }</div>
-
-                          <div className="col-span-2"><User size={14} className="mr-2"/> # Delegators</div>
-                          <div className="text-center">{
-                            this.state.stakePool_3_Stats?.nDelegators !== undefined
-                                ?
-                                (this.state.stakePool_3_Stats?.nDelegators).toLocaleString("en-US", {maximumFractionDigits: 0})
-                                :
-                                null
-
-                          }</div>
-
-                          <div className="col-span-2"><Percentage size={14} className="mr-2"/> Margin</div>
-                          <div className="text-center">{
-                            this.state.stakePool_3_Stats?.poolVariableFee !== undefined
-                                ?
-                                (this.state.stakePool_3_Stats?.poolVariableFee).toLocaleString("en-US", {maximumFractionDigits: 1})
+                                <div>
+                                  <div className="grid gap-2 grid-cols-3 bg-gray-900/5 -ml-2 -mr-2 mt-1 py-4 px-2 text-center bg-blue-primary rounded-md">
+                                    <div className="font-medium">Lower</div>
+                                    <div className="font-medium">Average</div>
+                                    <div className="font-medium">Upper</div>
+                                    <div>{`${(this.state.stakePool_3_Stats?.delegatorsReward_lower / this.state.stakePool_3_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
+                                    <div>{`${(this.state.stakePool_3_Stats?.delegatorsReward_av / this.state.stakePool_3_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
+                                    <div>{`${(this.state.stakePool_3_Stats?.delegatorsReward_upper / this.state.stakePool_3_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
+                                  </div>
+                                  <div className="mt-2 text-xs">Stake pool parameters are shown in the section below</div>
+                                </div>
                                 :
                                 null
                           }
-                          </div>
-
-                          <div className="col-span-2"><BankAccount size={14} className="mr-2"/> Min Fee</div>
-                          <div className="text-center">{
-                            this.state.stakePool_3_Stats?.poolFixedCost !== undefined
-                                ?
-                                (this.state.stakePool_3_Stats?.poolFixedCost).toLocaleString("en-US", {maximumFractionDigits: 0})
-                                :
-                                null
-                          }
-                          </div>
 
                         </div>
 
-                        <p className="mt-8"><SeriesAdd size={14} className="mr-2"/> Expected Return</p>
                         {
-                          // Only show expected return if there is something to show
-                          this.state.stakePool_3_Stats?.delegatorsReward_av !== undefined
+                          this.state.stakePool_3_Stats.isRedFlag
                               ?
-                              <div className="grid gap-2 grid-cols-3 bg-gray-900/5 -ml-2 -mr-2 mt-1 py-4 px-2 text-center bg-blue-primary rounded-md">
-                                <div className="font-medium">Lower</div>
-                                <div className="font-medium">Average</div>
-                                <div className="font-medium">Upper</div>
-                                <div>{`${(this.state.stakePool_3_Stats?.delegatorsReward_lower / this.state.stakePool_3_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
-                                <div>{`${(this.state.stakePool_3_Stats?.delegatorsReward_av / this.state.stakePool_3_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
-                                <div>{`${(this.state.stakePool_3_Stats?.delegatorsReward_upper / this.state.stakePool_3_Stats?.delegatorsStake * 100).toLocaleString("en-US", {maximumFractionDigits: 2})} %`}</div>
-                              </div>
+                              <p className="mt-2 mx-2 text-red-400 font-medium">
+                                <WarningSign size={14} intent={Intent.DANGER} className="mr-1"/>
+                                This pool does not meet its pledge, hence the pool will not generate any rewards
+                              </p>
                               :
                               null
                         }
 
                       </div>
-
-
-
 
 
                     </div>
