@@ -15,7 +15,7 @@ import {
   Quartile, shuffleArray
 } from "@/components/utils";
 import {Button, ControlGroup, InputGroup, Intent, Label, OverlayToaster, Position, Tag} from "@blueprintjs/core";
-import {Calendar, Cube, SeriesAdd, User, Percentage, BankAccount, WarningSign} from "@blueprintjs/icons";
+import {Calendar, Cube, SeriesAdd, User, Percentage, BankAccount, WarningSign, FullStackedChart} from "@blueprintjs/icons";
 import StakePoolSelector from "../components/StakePoolSelector";
 import InfoHoverComponent from "../components/InfoHoverComponent";
 import {infoHovers, infoSections, uiText} from "@/components/infos";
@@ -87,6 +87,7 @@ class RewardCalculator extends React.Component {
       currentAdaSupply: undefined,
       feesInEpoch: undefined,
       totalAdaStaked: undefined,
+      maxSaturationStake: undefined,
 
       /**
        * Stake Pool default parameters
@@ -159,6 +160,7 @@ class RewardCalculator extends React.Component {
         delegatorsReward_av: undefined,
         delegatorsReward_upper: 0,
         delegatorsStake: 0,
+        poolStakeSaturation: undefined,
       },
       stakePool_2_Stats: {
         name: "",
@@ -173,6 +175,7 @@ class RewardCalculator extends React.Component {
         delegatorsReward_av: undefined,
         delegatorsReward_upper: 0,
         delegatorsStake: 0,
+        poolStakeSaturation: undefined,
       },
       stakePool_3_Stats: {
         name: "",
@@ -187,6 +190,7 @@ class RewardCalculator extends React.Component {
         delegatorsReward_av: undefined,
         delegatorsReward_upper: 0,
         delegatorsStake: 0,
+        poolStakeSaturation: undefined,
       },
 
 
@@ -292,6 +296,8 @@ class RewardCalculator extends React.Component {
       console.log("--- Getting Protocol Reserves ---")
       const reservesObj = await getReserves(currentEpochN);
       const currentAdaSupply = reservesObj["supply"] / 1000000
+      const maxSaturationStake = currentAdaSupply / Number(k)
+      console.log(`maxSaturationStake: ${maxSaturationStake}`)
       this.setState({uiProgressPerc: 0.65})
 
       console.log("--- Getting Stake Pools Info ---")
@@ -339,7 +345,7 @@ class RewardCalculator extends React.Component {
         allStakePoolInfo,
         rho, tau, k, a0,
         currentEpochN, currentEpochSlot, currentBlockTime,
-        totalAdaStaked, feesInEpoch,
+        totalAdaStaked, feesInEpoch, maxSaturationStake,
         currentAdaSupply,
       }, () => {
         this.updateSelectedPoolParams()
@@ -686,6 +692,11 @@ class RewardCalculator extends React.Component {
     const prev_rewardsPerYearADA = prev_rewardsPerYearPerc * this.state.prev_userAmount;
 
     /**
+     * Calculate new pool saturation percentage
+     */
+    const poolStakeSaturation = this.state.poolStake_plus_userAmount / this.state.maxSaturationStake;
+
+    /**
      * Store the user amount as prev_userAmount for next iteration
      */
     const prev_userAmount = this.state.userAmount;
@@ -721,6 +732,7 @@ class RewardCalculator extends React.Component {
           delegatorsReward_lower,
           delegatorsReward_upper,
           delegatorsStake,
+          poolStakeSaturation,
         }
       }
 
@@ -1207,8 +1219,21 @@ class RewardCalculator extends React.Component {
                             }
                             </div>
 
-                            <div className="col-span-2"><Percentage size={14} className="mr-2"/> Margin</div>
-                            <div className="text-center">{
+                            <div className="col-span-2"><FullStackedChart size={14} className="mr-2"/> Pool Saturation</div>
+                            <div className={`
+                                text-center
+                                ${this.state.stakePool_1_Stats?.poolStakeSaturation > 1 ? "text-red-400" : ""}
+                            `}>{
+                              this.state.stakePool_1_Stats?.poolStakeSaturation !== undefined
+                                  ?
+                                  (this.state.stakePool_1_Stats?.poolStakeSaturation * 100).toLocaleString("en-US", {maximumFractionDigits: 1}) + "%"
+                                  :
+                                  null
+                            }
+                            </div>
+
+                            <div className="mt-2 col-span-2"><Percentage size={14} className="mr-2"/> Margin</div>
+                            <div className="mt-2 text-center">{
                               this.state.stakePool_1_Stats?.poolVariableFee !== undefined
                                   ?
                                   (this.state.stakePool_1_Stats?.poolVariableFee).toLocaleString("en-US", {maximumFractionDigits: 1})
@@ -1226,6 +1251,8 @@ class RewardCalculator extends React.Component {
                                   null
                             }
                             </div>
+
+
 
                           </div>
 
@@ -1325,8 +1352,21 @@ class RewardCalculator extends React.Component {
 
                             }</div>
 
-                            <div className="col-span-2"><Percentage size={14} className="mr-2"/> Margin</div>
-                            <div className="text-center">{
+                            <div className="col-span-2"><FullStackedChart size={14} className="mr-2"/> Pool Saturation</div>
+                            <div className={`
+                                text-center
+                                ${this.state.stakePool_2_Stats?.poolStakeSaturation > 1 ? "text-red-400" : ""}
+                            `}>{
+                              this.state.stakePool_2_Stats?.poolStakeSaturation !== undefined
+                                  ?
+                                  (this.state.stakePool_2_Stats?.poolStakeSaturation * 100).toLocaleString("en-US", {maximumFractionDigits: 1}) + "%"
+                                  :
+                                  null
+                            }
+                            </div>
+
+                            <div className="mt-2 col-span-2"><Percentage size={14} className="mr-2"/> Margin</div>
+                            <div className="mt-2 text-center">{
                               this.state.stakePool_2_Stats?.poolVariableFee !== undefined
                                   ?
                                   (this.state.stakePool_2_Stats?.poolVariableFee).toLocaleString("en-US", {maximumFractionDigits: 1})
@@ -1436,8 +1476,21 @@ class RewardCalculator extends React.Component {
 
                             }</div>
 
-                            <div className="col-span-2"><Percentage size={14} className="mr-2"/> Margin</div>
-                            <div className="text-center">{
+                            <div className="col-span-2"><FullStackedChart size={14} className="mr-2"/> Pool Saturation</div>
+                            <div className={`
+                                text-center
+                                ${this.state.stakePool_3_Stats?.poolStakeSaturation > 1 ? "text-red-400" : ""}
+                            `}>{
+                              this.state.stakePool_3_Stats?.poolStakeSaturation !== undefined
+                                  ?
+                                  (this.state.stakePool_3_Stats?.poolStakeSaturation * 100).toLocaleString("en-US", {maximumFractionDigits: 1}) + "%"
+                                  :
+                                  null
+                            }
+                            </div>
+
+                            <div className="mt-2 col-span-2"><Percentage size={14} className="mr-2"/> Margin</div>
+                            <div className="mt-2 text-center">{
                               this.state.stakePool_3_Stats?.poolVariableFee !== undefined
                                   ?
                                   (this.state.stakePool_3_Stats?.poolVariableFee).toLocaleString("en-US", {maximumFractionDigits: 1})
