@@ -22,6 +22,7 @@ import {infoHovers, infoSections, uiText} from "@/components/infos";
 import UiSpinner from "../components/UiSpinner";
 import { createRoot } from "react-dom/client";
 import VersionDisplay from "@/components/VersionDisplay";
+import useIframeSizing from "../components/iframe-sizing";
 
 
 // export async function getServerSideProps({ query }) {
@@ -922,7 +923,9 @@ class RewardCalculator extends React.Component {
 
 
   async componentDidMount() {
-
+    // Call the iframe height handling function
+    useIframeSizing();
+    
     // Extract the language parameter from the URL
     const params = new URLSearchParams(window.location.search);
     const lang = params.get('lang');
