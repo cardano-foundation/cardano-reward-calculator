@@ -22,7 +22,7 @@ import {infoHovers, infoSections, uiText} from "@/components/infos";
 import UiSpinner from "../components/UiSpinner";
 import { createRoot } from "react-dom/client";
 import VersionDisplay from "@/components/VersionDisplay";
-import useIframeSizing from "../components/iframe-sizing";
+import IframeResizer from "../components/iframe-sizing";
 
 
 // export async function getServerSideProps({ query }) {
@@ -923,8 +923,6 @@ class RewardCalculator extends React.Component {
 
 
   async componentDidMount() {
-    // Call the iframe height handling function
-    useIframeSizing();
     
     // Extract the language parameter from the URL
     const params = new URLSearchParams(window.location.search);
@@ -943,6 +941,11 @@ class RewardCalculator extends React.Component {
       domRenderer: (toaster, containerElement) => createRoot(containerElement).render(toaster),
     });
 
+    // Attach IframeResizer inside the iframe content
+    const container = document.createElement("div");
+    document.body.appendChild(container);
+    createRoot(container).render(<IframeResizer />); 
+  
   }
 
   componentWillUnmount() {

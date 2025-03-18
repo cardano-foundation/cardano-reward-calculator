@@ -6,9 +6,9 @@ This is to avoid double scrollbars and provide a better user experience.
 It also displays a full screen icon to expand the iframe content to the maximum screen size.
 */
 
-export default function useIframeSizing() {
+export default function IframeResizer() {
     useEffect(() => {
-        console.log("[Iframe] useIframeSizing Hook Mounted");
+        console.log("[Iframe] IframeResizer Hook Mounted");
 
         function updateHeight() {
             const height = document.documentElement.scrollHeight;
@@ -86,4 +86,6 @@ export default function useIframeSizing() {
             window.removeEventListener('resize', updateHeight);
         };
     }, []);
+
+    return null; 
 }
