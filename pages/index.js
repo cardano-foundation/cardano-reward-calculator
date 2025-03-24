@@ -923,7 +923,7 @@ class RewardCalculator extends React.Component {
 
 
   async componentDidMount() {
-    
+
     // Extract the language parameter from the URL
     const params = new URLSearchParams(window.location.search);
     const lang = params.get('lang');
@@ -944,8 +944,8 @@ class RewardCalculator extends React.Component {
     // Attach IframeResizer inside the iframe content
     const container = document.createElement("div");
     document.body.appendChild(container);
-    createRoot(container).render(<IframeResizer />); 
-  
+    createRoot(container).render(<IframeResizer />);
+
   }
 
   componentWillUnmount() {
@@ -1242,7 +1242,7 @@ class RewardCalculator extends React.Component {
                             <div className="mt-2 text-center">{
                               this.state.stakePool_1_Stats?.poolVariableFee !== undefined
                                   ?
-                                  (this.state.stakePool_1_Stats?.poolVariableFee).toLocaleString("en-US", {maximumFractionDigits: 1})
+                                  (this.state.stakePool_1_Stats?.poolVariableFee).toLocaleString("en-US", {maximumFractionDigits: 2})
                                   :
                                   null
                             }
@@ -1375,7 +1375,7 @@ class RewardCalculator extends React.Component {
                             <div className="mt-2 text-center">{
                               this.state.stakePool_2_Stats?.poolVariableFee !== undefined
                                   ?
-                                  (this.state.stakePool_2_Stats?.poolVariableFee).toLocaleString("en-US", {maximumFractionDigits: 1})
+                                  (this.state.stakePool_2_Stats?.poolVariableFee).toLocaleString("en-US", {maximumFractionDigits: 2})
                                   :
                                   null
                             }
@@ -1499,7 +1499,7 @@ class RewardCalculator extends React.Component {
                             <div className="mt-2 text-center">{
                               this.state.stakePool_3_Stats?.poolVariableFee !== undefined
                                   ?
-                                  (this.state.stakePool_3_Stats?.poolVariableFee).toLocaleString("en-US", {maximumFractionDigits: 1})
+                                  (this.state.stakePool_3_Stats?.poolVariableFee).toLocaleString("en-US", {maximumFractionDigits: 2})
                                   :
                                   null
                             }

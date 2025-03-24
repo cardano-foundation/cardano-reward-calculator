@@ -1,6 +1,6 @@
 {
   "name": "cardano_reward_calculator",
-  "version": "25.03.1",
+  "version": "25.03.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,7 +12,7 @@
     "@blueprintjs/core": "^5.16.4",
     "@blueprintjs/select": "^5.3.9",
     "@heroicons/react": "^2.2.0",
-    "axios": "^1.7.9",
+    "axios": "^1.8.4",
     "express": "^4.21.2",
     "next": "^14.2.23",
     "path": "^0.12.7",
