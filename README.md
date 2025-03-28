@@ -28,6 +28,10 @@ The first language into which the reward calculator has been translated is Japan
 
 カルダノ賭け報酬計算機を日本語で呼び出す。<a href="https://cardano.org/calculator/?lang=jp">https://cardano.org/calculator/?lang=jp</a>
 
+German has been added as a further translation.
+
+Rufe den Cardano Staking-Belohnungsrechner auf Deutsch auf: <a href="https://cardano.org/calculator/?lang=de">https://cardano.org/calculator/?lang=de</a>
+
 ## Using NextJs
 We chose the NextJS framework as it is one of the most common forms to launch a web project and is well understood
 in the developer's community. Create React App is not advisable for a production deployment. For more info on the choice of framework check the React guidance
