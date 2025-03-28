@@ -15,8 +15,14 @@ export const uiText = {
 			<div key="amount_ada_to_stake_jp">
 				ステークするADAの量
 			</div>
+		],
+		"de": [
+			<div key="amount_ada_to_stake_de">
+				Höhe des ADA Stakes
+			</div>
 		]
-	} ,
+
+	},
 
 	"amount_ada_to_stake_desc": {
 		"en": [
@@ -28,8 +34,13 @@ export const uiText = {
 			<div key="amount_ada_to_stake_desc_jp">
 				ステークしたいADAの金額を入力してください。
 			</div>
+		],
+		"de": [
+			<div key="amount_ada_to_stake_desc_de">
+				Gib den ADA-Betrag ein, den du einsetzen möchtest:
+			</div>
 		]
-	} ,
+	},
 
 	"loading_stake_pools_label": {
 		"en": [
@@ -41,8 +52,13 @@ export const uiText = {
 			<div key="loading_stake_pools_label_jp">
 				ステークプールを読み込み中...
 			</div>
+		],
+		"de": [
+			<div key="loading_stake_pools_label_de">
+				Stake Pools werden geladen ...
+			</div>
 		]
-	} ,
+	},
 
 	"staking_rewards_per_year_ada_label": {
 		"en": [
@@ -54,8 +70,13 @@ export const uiText = {
 			<div key="staking_rewards_per_year_ada_label_jp">
 				年間のADAのステーキング報酬
 			</div>
+		],
+		"de": [
+			<div key="staking_rewards_per_year_ada_label_de">
+				Staking Erträge pro Jahr
+			</div>
 		]
-	} ,
+	},
 
 	"annualized_staking_reward_label": {
 		"en": [
@@ -67,8 +88,13 @@ export const uiText = {
 			<div key="annualized_staking_reward_label_jp">
 				年間ステーキング報酬
 			</div>
+		],
+		"de": [
+			<div key="annualized_staking_reward_label_de">
+				Jährliche Staking Erträge
+			</div>
 		]
-	} ,
+	},
 
 	"stake_pool_section_title": {
 		"en": [
@@ -80,14 +106,19 @@ export const uiText = {
 			<div key="stake_pool_section_title_jp">
 				ステーキングプール
 			</div>
+		],
+		"de": [
+			<div key="stake_pool_section_title_de">
+				Staking Pools
+			</div>
 		]
-	} ,
+	},
 
 	"stake_pool_section_desc": {
 		"en": [
 			<div key="stake_pool_section_desc_en">
-				Compare up to 3 stake pools. See how much you can expect to earn. 
-				A Monte Carlo simulation is used to account for the luck factor and 
+				Compare up to 3 stake pools. See how much you can expect to earn.
+				A Monte Carlo simulation is used to account for the luck factor and
 				shows the expected low, medium and high return for each pool.
 			</div>
 		],
@@ -97,8 +128,14 @@ export const uiText = {
 				オペレーターおよびデリゲーター（あなた）のステーキング報酬の予測額を確認できます。
 				モンテカルロシミュレーションを使用して運の要素を考慮し、それぞれのプールの予想される低・中・高の報酬を表示します。
 			</div>
+		],
+		"de": [
+			<div key="stake_pool_section_desc_de">
+				Vergleiche bis zu drei Stake Pools und finde heraus, wie viel du voraussichtlich verdienen kannst.
+				Durch eine Monte-Carlo-Simulation wird der Glücksfaktor berücksichtigt, sodass du für jeden Pool eine mögliche niedrige, mittlere und hohe Rendite siehst.
+			</div>
 		]
-	} ,
+	},
 
 	"stake_pool_parameters_section_title": {
 		"en": [
@@ -110,15 +147,20 @@ export const uiText = {
 			<div key="stake_pool_parameters_section_title_jp">
 				ステークプールのパラメーター
 			</div>
+		],
+		"de": [
+			<div key="stake_pool_parameters_section_title_de">
+				Stake Pool Parameter
+			</div>
 		]
-	} ,
+	},
 
 	"stake_pool_parameters_section_desc": {
 		"en": [
 			<div key="stake_pool_parameters_section_desc_en">
-				These parameters are specific to each stake pool and affect how rewards are 
-				distributed between the pool operator and delegators, as well as how many 
-				blocks the pool is expected to mint each epoch. Expand to change these 
+				These parameters are specific to each stake pool and affect how rewards are
+				distributed between the pool operator and delegators, as well as how many
+				blocks the pool is expected to mint each epoch. Expand to change these
 				parameters and see the effect on rewards.
 			</div>
 		],
@@ -129,8 +171,16 @@ export const uiText = {
 				プールがどれだけのブロックを生成するかに影響を与えます。
 				パラメーターを変更して、報酬への影響を確認してください。
 			</div>
+		],
+		"de": [
+			<div key="stake_pool_parameters_section_desc_de">
+				Diese Parameter sind für jeden Stake Pool einzigartig und bestimmen,
+				wie die Erträge zwischen dem Betreiber und den Delegierenden aufgeteilt werden.
+				Außerdem beeinflussen sie, wie viele Blöcke der Pool pro Epoche voraussichtlich validiert.
+				Klick auf das Plus, um die Parameter anzupassen.
+			</div>
 		]
-	} ,
+	},
 
 
 	"blockchain_params_section_title": {
@@ -143,15 +193,20 @@ export const uiText = {
 			<div key="blockchain_params_section_title_jp">
 				ブロックチェーンパラメーター
 			</div>
+		],
+		"de": [
+			<div key="blockchain_params_section_title_de">
+				Blockchain Parameter
+			</div>
 		]
-	} ,
+	},
 
 	"blockchain_params_section_desc": {
 		"en": [
 			<div key="blockchain_params_section_desc_en">
-				These parameters are specific to the Cardano blockchain and affect the total 
-				size of the reward &quot;pot&quot; available for distribution, and how it is distributed 
-				to different pools. Some parameters can be changed by community vote 
+				These parameters are specific to the Cardano blockchain and affect the total
+				size of the reward &quot;pot&quot; available for distribution, and how it is distributed
+				to different pools. Some parameters can be changed by community vote
 				(dynamic parameters), while others can&apos;t be changed at all (static parameters).
 			</div>
 		],
@@ -162,8 +217,16 @@ export const uiText = {
 				一部のパラメーターはコミュニティの投票によって変更可能（動的パラメーター）
 				ですが、一部のパラメーターは全く変更できません（静的パラメーター）
 			</div>
+		],
+		"de": [
+			<div key="blockchain_params_section_desc_de">
+				Diese Parameter sind spezifisch für die Cardano-Blockchain und bestimmen,
+				wie groß der verfügbare "Belohnungstopf" ist und wie die Rewards auf die verschiedenen
+				Pools verteilt werden. Einige davon können durch Community-Abstimmungen geändert werden
+				(dynamische Parameter), während andere festgelegt und unveränderlich sind (statische Parameter).
+			</div>
 		]
-	} ,
+	},
 
 	"dynamic_params_section_title": {
 		"en": [
@@ -175,8 +238,13 @@ export const uiText = {
 			<div key="dynamic_params_section_title_jp">
 				動的パラメーター
 			</div>
+		],
+		"de": [
+			<div key="dynamic_params_section_title_de">
+				Dynamische Parameter
+			</div>
 		]
-	} ,
+	},
 
 	"dynamic_params_section_desc": {
 		"en": [
@@ -194,8 +262,15 @@ export const uiText = {
 				誓約の影響度を定義したりするために使用されます。
 				各パラメーターの役割を確認するには、(i) アイコンを押してください。
 			</div>
+		],
+		"de": [
+			<div key="dynamic_params_section_desc_de">
+				Dynamische Blockchain-Parameter können durch Governance-Prozesse angepasst werden.
+				Sie beeinflussen unter anderem die Blockproduktion, Transaktionsgebühren und den Einfluss des Eigenkapitals.
+				Klick auf das (i)-Symbol, um mehr über die einzelnen Parameter zu erfahren.
+			</div>
 		]
-	} ,
+	},
 
 	"static_params_section_title": {
 		"en": [
@@ -207,8 +282,13 @@ export const uiText = {
 			<div key="static_params_section_title_jp">
 				静的パラメーター
 			</div>
+		],
+		"de": [
+			<div key="static_params_section_title_de">
+				Statische Parameter
+			</div>
 		]
-	} ,
+	},
 
 	"static_params_section_desc": {
 		"en": [
@@ -225,8 +305,16 @@ export const uiText = {
 				静的パラメータには、ジェネシスブロックや基本的なセキュリティ特性を定義するものが含まれます。
 				これらのパラメータのいくつかは、ソースコードに埋め込まれているか、ソフトウェアとして実装されています。
 			</div>
+		],
+		"de": [
+			<div key="static_params_section_desc_de">
+				Statische Parameter beeinflussen die Grundlagen des Cardano-Protokolls und sind stabil, das heißt,
+				sie können nur durch einen Hard Fork geändert werden. Dazu gehören beispielsweise Parameter, die den
+				Genesis-Block oder grundlegende Sicherheitsmerkmale definieren. Einige dieser Parameter sind im Quellcode
+				verankert oder als Software implementiert.
+			</div>
 		]
-	} ,
+	},
 
 	"fees_section_title": {
 		"en": [
@@ -238,8 +326,13 @@ export const uiText = {
 			<div key="fees_section_title_jp">
 				料金と残りのリザーブ
 			</div>
+		],
+		"de": [
+			<div key="fees_section_title_de">
+				Gebühren und Rücklagen
+			</div>
 		]
-	} ,
+	},
 
 	"fees_section_desc": {
 		"en": [
@@ -256,10 +349,16 @@ export const uiText = {
 				各エポックの手数料はプールされ、その後、エポック中にブロックを作成したすべてのプールに分配されます。
 				手数料は、リザーブからの一定の割合（rho）の分配によって補完されます。
 			</div>
+		],
+		"de": [
+			<div key="fees_section_desc_de">
+				Cardano verwendet ein Transaktionsgebührensystem, dass die Kosten für die Verarbeitung und langfristige
+				Speicherung von Transaktionen abdeckt. Die Gebühren jeder Epoche werden gesammelt und an alle Pools verteilt,
+				die in dieser Epoche Blöcke erstellt haben. Zusätzlich wird die Epochenbelohnung durch eine Ausschüttung eines
+				bestimmten Prozentsatzes (rho) aus den Reserven ergänzt.
+			</div>
 		]
-	} ,
-
-
+	},
 }
 
 
@@ -294,8 +393,22 @@ export const infoHovers = {
 					運次第で一部のプールは1年間に多く（あるいは少なく）の
 					ブロックを獲得することがあります。</p>
 			</div>
+		],
+		"de": [
+			<div key="monte_carlo_jp" className="space-y-2">
+				<h4 className="text-lg font-medium">Zu erwartete Rendite</h4>
+				<p>Die zu erwarteten Renditen werden als Durchschnitt und als Enden der Verteilung angezeigt:</p>
+				<ul className="list-disc pl-6 font-medium space-y-2">
+					<li>Unteres - 10. Perzentil</li>
+					<li>Durchschnitt</li>
+					<li>Oberes 90. Perzentil</li>
+				</ul>
+				<p>Blöcke werden in jeder Epoche zufällig an Stake Pools vergeben.
+					Dadurch kann es vorkommen, dass einige Pools allein durch Glück über ein Jahr hinweg mehr oder
+					weniger Blöcke erhalten.</p>
+			</div>
 		]
-	} ,
+	},
 
 
 
@@ -320,8 +433,17 @@ export const infoHovers = {
 				</ul>
 			</div>
 		],
+		"de": [
+			<div key="pool_pledge_jp" className="space-y-2">
+				<h4 className="text-lg font-medium">Eigenkapital (Pool Pledge)</h4>
+				<p>Den Betrag an ADA, den der Stake Pool Betreiber in seinem eigenen Pool min. hinterlegt.</p>
+				<ul className="list-disc pl-6 space-y-2">
+					<li>Pools mit einem höheren Eigenkapital können durch den "a0"-Parameter in der Belohnungsformel potenziell etwas höhere Belohnungen erhalten.</li>
+					<li>Ein höheres Eigenkapital zeigt ein starkes finanzielle Verpflichtung des Pool-Betreibers</li>
+				</ul>
+			</div>
+		]
 	},
-
 
 	"delegator_stake": {
 		"en": [
@@ -344,8 +466,20 @@ export const infoHovers = {
 					<li>より多くのステークを集めたプールは、より多くのブロックを生成し、より多くの報酬を生み出す傾向がありますが、運営手数料とのバランスを考慮する必要があります。</li>
 				</ul>
 			</div>
+		],
+		"de": [
+			<div key="delegator_stake_jp" className="space-y-2">
+				<h4 className="text-lg font-medium">Anteil des Delegierenden (Delegators&apos; Stake)</h4>
+				<p>Die Gesamtmenge an ADA, die andere Delegierede an diesen Pool delegiert haben.</p>
+				<ul className="list-disc pl-6 space-y-2">
+					<li>Je mehr ADA von den Delegierenden eingesetzt werden, desto höher ist die Wahrscheinlichkeit, dass der Pool für
+						die Validierung von Blöcken ausgewählt wird.</li>
+					<li>Pools mit einem höheren delegierten Stake produzieren tendenziell mehr Blöcke und generieren mehr Rewards.
+						Allerdings muss dies gegen die Gebühren abgewogen werden, die sie erheben.</li>
+				</ul>
+			</div>
 		]
-	} ,
+	},
 
 	"total_pool_stake": {
 		"en": [
@@ -369,8 +503,17 @@ export const infoHovers = {
 					これらの手数料は、プール運営者とすべての委任者で分配されます。
 				</p>
 			</div>
+		],
+		"de": [
+			<div key="total_pool_stake_jp" className="space-y-2">
+				<h4 className="text-lg font-medium">Gesamtsumme (Total Pool Stake)</h4>
+				<p>Die Gesamtsumme an ADA, einschließlich des Eigenkapitals des Betreibers und der Anteile der Delegierenden,
+					die dem Pool zugeschrieben sind, um an der Blockvalidierung teilzunehmen.</p>
+				<p>Pools mit höherem Einsatz werden mehr Blöcke validieren und erwirtschaften somit höhere Erträge.
+					Der Ertrag wird Anteilsmäßig zwischen dem Poolbetreiber und den Delegierenden aufgeteilt.</p>
+			</div>
 		]
-	} ,
+	},
 
 	"pool_fixed_costs": {
 		"en": [
@@ -396,8 +539,18 @@ export const infoHovers = {
 					この場合、委任者に対する課金もなく、次のエポックが新たに開始されます。
 				</p>
 			</div>
+		],
+		"de": [
+			<div key="pool_fixed_costs_jp" className="space-y-2">
+				<h4 className="text-lg font-medium">Fixe Gebühr (Pool Fixed Costs)</h4>
+				<p>Eine Mindestgebühr, die der Stake-Pool-Betreiber in jeder Epoche von den Erträgen abzieht, um den Betrieb des Pools zu finanzieren.
+					Diese Gebühr wird zuerst abgezogen, bevor die Erträge an die Delegierenden anteilsmäßig verteilt werden. Der Betreiber kann sie nutzen,
+					um die Fixkosten für die Infrastruktur zu decken (z. B. Server, Netzwerke, Redundanzen ...).</p>
+				<p>Falls der Pool während einer Epoche keine Blöcke validiert, werden auch keine Erträge erwitschaftet. In diesem Fall werden dem
+					Poolbetreiber und den Delegierenden für diese Epoche keine Erträge gut geschrieben.</p>
+			</div>
 		]
-	} ,
+	},
 
 	"pool_variable_fee": {
 		"en": [
@@ -417,8 +570,16 @@ export const infoHovers = {
 					値はパーセンテージ（100倍された値）で表示されます。
 				</p>
 			</div>
+		],
+		"de": [
+			<div key="pool_variable_fee_jp" className="space-y-2">
+				<h4 className="text-lg font-medium">Variable Gebühr (Pool Variable Fee)</h4>
+				<p>Ein Prozentsatz der erwirtschafteten Erträge, den der Poolbetreiber einbehält.</p>
+				<p>Delegierte erhalten den verbleibenden Ertrag nach Abzug der fixen- und variablen Gebühren.
+					Der Wert wird als Prozentsatz multipliziert mit 100 angezeigt.</p>
+			</div>
 		]
-	} ,
+	},
 
 
 	"rho": {
@@ -433,8 +594,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">ρ（ロー）</h4>
 				<p>各エポックでステーキング報酬の支払いに充てられるリザーブの割合（例: 0.003 は 0.3%）。</p>
 			</div>
+		],
+		"de": [
+			<div key="rho_jp" className="space-y-2">
+				<h4 className="text-lg font-medium">ρ（ロー）</h4>
+				<p>Ein Prozentsatz der Reserve, der in jeder Epoche zur Zahlung der Staking Erträge verwendet wird (z. B. 0,003 ist 0,3 %)</p>
+			</div>
 		]
-	} ,
+	},
 
 	"tau": {
 		"en": [
@@ -448,8 +615,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">Tau</h4>
 				<p>各エポックでトレジャリーに割り当てられる報酬の割合（例: 20%）。</p>
 			</div>
+		],
+		"de": [
+			<div key="tau_jp" className="space-y-2">
+				<h4 className="text-lg font-medium">Tau</h4>
+				<p>Ein Prozentsatz der Ertäge die in jeder Epoche in die Reserve fließt (z. B. 20 %)</p>
+			</div>
 		]
-	} ,
+	},
 
 	"k": {
 		"en": [
@@ -472,8 +645,16 @@ export const infoHovers = {
 					新しいステークプールを設定するのが比較的簡単なため、このパラメータが制約要因になることは稀です。
 				</p>
 			</div>
+		],
+		"de": [
+			<div key="k_jp" className="space-y-2">
+				<h4 className="text-lg font-medium">K</h4>
+				<p>Die optimale Anzahl vollständig gesättigter Pools (z. B. 500). Diese Zahl bestimmt die Stake-Grenze, ab der die Erträge sinken.
+					Dadurch wird begrenzt, wie groß ein einzelner Pool wirtschaftlich betrieben werden kann.</p>
+				<p>Da es relativ einfach ist, neue Stake Pools einzurichten, spielt dieser Parameter keine Rolle als einschränkender Faktor.</p>
+			</div>
 		]
-	} ,
+	},
 
 	"a0": {
 		"en": [
@@ -491,8 +672,15 @@ export const infoHovers = {
 					これは、ステークプール運営者が自分のプールにもっとADAを誓約するよう促すインセンティブ機構として機能します。
 				</p>
 			</div>
+		],
+		"de": [
+			<div key="a0_jp" className="space-y-2">
+				<h4 className="text-lg font-medium">a0</h4>
+				<p>Bestimmt, wie stark das Eigenkapital eines Stake Pools die Belohnungsverteilung beeinflusst.
+					Es dient als Anreizmechanismus, um Stake Pool Betreiber zu ermutigen, ein hohes EIgenkapital zu hinterlegen.</p>
+			</div>
 		]
-	} ,
+	},
 
 	"z0": {
 		"en": [
@@ -506,8 +694,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">z0</h4>
 				<p>これは報酬計算式のためにa0パラメータを変換したものです。</p>
 			</div>
+		],
+		"de": [
+			<div key="z0_jp" className="space-y-2">
+				<h4 className="text-lg font-medium">z0</h4>
+				<p>Ist der Kehrwert von a0 in der Belohnungsformel.</p>
+			</div>
 		]
-	} ,
+	},
 
 	"days_in_epoch": {
 		"en": [
@@ -521,8 +715,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">エポックの日数 (Days in an Epoch)</h4>
 				<p>...</p>
 			</div>
+		],
+		"de": [
+			<div key="days_in_epoch_de" className="space-y-2">
+				<h4 className="text-lg font-medium">Anzahl der Tage einer Epoche</h4>
+				<p>...</p>
+			</div>
 		]
-	} ,
+	},
 
 	"epochs_in_year": {
 		"en": [
@@ -536,8 +736,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">1年あたりのエポック数 (Epochs in a Year)</h4>
 				<p>...</p>
 			</div>
+		],
+		"de": [
+			<div key="epochs_in_year_de" className="space-y-2">
+				<h4 className="text-lg font-medium">Anzahl der Epochen pro Jahr</h4>
+				<p>...</p>
+			</div>
 		]
-	} ,
+	},
 
 	"slots_in_epoch": {
 		"en": [
@@ -551,8 +757,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">エポック内のスロット数</h4>
 				<p>...</p>
 			</div>
+		],
+		"de": [
+			<div key="slots_in_epoch_de" className="space-y-2">
+				<h4 className="text-lg font-medium">Anzahl der Slots einer Epoche</h4>
+				<p>...</p>
+			</div>
 		]
-	} ,
+	},
 
 	"chain_density": {
 		"en": [
@@ -566,8 +778,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">チェーン密度 (Chain Density)</h4>
 				<p>...</p>
 			</div>
+		],
+		"de": [
+			<div key="chain_density_de" className="space-y-2">
+				<h4 className="text-lg font-medium">Kettendichte (Chain Density)</h4>
+				<p>...</p>
+			</div>
 		]
-	} ,
+	},
 
 	"blocks_in_epoch": {
 		"en": [
@@ -581,8 +799,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">エポック内のブロック数 (Blocks in an Epoch)</h4>
 				<p>...</p>
 			</div>
+		],
+		"de": [
+			<div key="blocks_in_epoch_de" className="space-y-2">
+				<h4 className="text-lg font-medium">Anzahl der Blöcke pro Epoche</h4>
+				<p>...</p>
+			</div>
 		]
-	} ,
+	},
 
 	"max_ada_supply": {
 		"en": [
@@ -596,8 +820,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">最大ADA供給量 (Max Ada Supply)</h4>
 				<p>...</p>
 			</div>
+		],
+		"de": [
+			<div key="max_ada_supply_de" className="space-y-2">
+				<h4 className="text-lg font-medium">Maximale, verfügbarer ADA</h4>
+				<p>...</p>
+			</div>
 		]
-	} ,
+	},
 
 	"current_ada_supply": {
 		"en": [
@@ -611,8 +841,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">現在のADA供給量 (Current Ada Supply)</h4>
 				<p>...</p>
 			</div>
+		],
+		"de": [
+			<div key="current_ada_supply_de" className="space-y-2">
+				<h4 className="text-lg font-medium">Aktuell, verfügbare ADA</h4>
+				<p>...</p>
+			</div>
 		]
-	} ,
+	},
 
 	"reserve_ada": {
 		"en": [
@@ -626,8 +862,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">リザーブADA (Reserve ADA)</h4>
 				<p>...</p>
 			</div>
+		],
+		"de": [
+			<div key="reserve_ada_de" className="space-y-2">
+				<h4 className="text-lg font-medium">In Reserve befindliche ADA</h4>
+				<p>...</p>
+			</div>
 		]
-	} ,
+	},
 
 	"total_staked_ada": {
 		"en": [
@@ -641,8 +883,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">総ステークADA (Total Staked ADA)</h4>
 				<p>...</p>
 			</div>
+		],
+		"de": [
+			<div key="total_staked_ada_de" className="space-y-2">
+				<h4 className="text-lg font-medium">Gesamt delegierte ADA (Total Staked ADA)</h4>
+				<p>...</p>
+			</div>
 		]
-	} ,
+	},
 
 	"fees_in_epoch": {
 		"en": [
@@ -656,8 +904,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">エポック内のADA手数料 (ADA Fees in an Epoch)</h4>
 				<p>...</p>
 			</div>
+		],
+		"de": [
+			<div key="fees_in_epoch_de" className="space-y-2">
+				<h4 className="text-lg font-medium">ADA Gebühren pro Epoche</h4>
+				<p>...</p>
+			</div>
 		]
-	} ,
+	},
 
 	"distribution_from_reserve": {
 		"en": [
@@ -680,8 +934,17 @@ export const infoHovers = {
 					Rhoパラメータを変更して、これが委任者への総報酬にどのように影響するかを確認してください。
 				</p>
 			</div>
+		],
+		"de": [
+			<div key="distribution_from_reserve_de" className="space-y-2">
+				<h4 className="text-lg font-medium">ADA aus der Reserve</h4>
+				<p>In jeder Epoche wird ein fester Prozentsatz (rho) der Cardano Reserve für die Zahlung von Erträgen ausgeschüttet.
+					Dieser Prozentsatz verringert sich schrittweise, mit der Abnahme des Reserveguthabens.
+					Um das das Niveau der Staking Erträge zu halten, müssen die Transaktionsgebühren im Gegenzug steigen.</p>
+				<p>Ändere den Rho-Parameter, um zu sehen, wie sich dies auf die Gesamtbelohnung der Delegierenden auswirkt.</p>
+			</div>
 		]
-	} ,
+	},
 
 	"gross_rewards": {
 		"en": [
@@ -695,8 +958,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">総報酬 (Gross Rewards)</h4>
 				<p>...</p>
 			</div>
+		],
+		"de": [
+			<div key="gross_rewards_de" className="space-y-2">
+				<h4 className="text-lg font-medium">Bruttoertrag</h4>
+				<p>...</p>
+			</div>
 		]
-	} ,
+	},
 
 	"distribution_to_treasury": {
 		"en": [
@@ -710,8 +979,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">トレジャリーへの分配 (Distribution to Treasury)</h4>
 				<p>....</p>
 			</div>
+		],
+		"de": [
+			<div key="distribution_to_treasury_de" className="space-y-2">
+				<h4 className="text-lg font-medium">Reserve Zuteilung (Distribution to Treasury)</h4>
+				<p>....</p>
+			</div>
 		]
-	} ,
+	},
 
 	"net_rewards_to_pools": {
 		"en": [
@@ -725,8 +1000,14 @@ export const infoHovers = {
 				<h4 className="text-lg font-medium">プールへの純報酬 (Net Rewards to Pools)</h4>
 				<p>...</p>
 			</div>
+		],
+		"de": [
+			<div key="net_rewards_to_pools_de" className="space-y-2">
+				<h4 className="text-lg font-medium">Nettoertrag</h4>
+				<p>...</p>
+			</div>
 		]
-	} ,
+	},
 
 	"staking_reward_per_year_ada": {
 		"en": [
@@ -742,8 +1023,15 @@ export const infoHovers = {
 				<p>ステークされた量に対する年間予想報酬（ADA）。</p>
 				<p>灰色の数字は、異なるパラメータでのシミュレーション間で比較できるように、前回のシミュレーション結果を示しています。</p>
 			</div>
+		],
+		"de": [
+			<div key="staking_reward_per_year_ada_de" className="space-y-2">
+				<h4 className="text-lg font-medium">Staking Ertrag pro Jahr in ADA</h4>
+				<p>Erwarteter Ertrag in ADA pro Jahr für den eingesetzten Betrag.</p>
+				<p>Zur Vergleichbarkeit zwischen den Simulationen, zeigt die graue Zahl das Ergebnis der vorherigen Simulation an.</p>
+			</div>
 		]
-	} ,
+	},
 
 	"staking_reward_annualized_perc": {
 		"en": [
@@ -759,8 +1047,15 @@ export const infoHovers = {
 				<p>ステークされた量に対する年間予想報酬（%で表示）。</p>
 				<p>灰色の数字は、異なるパラメータでのシミュレーション間で比較できるように、前回のシミュレーション結果を示しています。</p>
 			</div>
+		],
+		"de": [
+			<div key="staking_reward_annualized_perc_de" className="space-y-2">
+				<h4 className="text-lg font-medium">Jährlicher Staking Ertrag</h4>
+				<p>Erwartete Belohnung in % pro Jahr für den eingesetzten Betrag.</p>
+				<p>Zur Vergleichbarkeit zwischen den Simulationen, zeigt die graue Zahl das Ergebnis der vorherigen Simulation an.</p>
+			</div>
 		]
-	} ,
+	},
 
 }
 
@@ -782,9 +1077,9 @@ export const infoSections = {
 				<p>You can delegate your ada to a staking pool and receive automatic and regular rewards. </p>
 				<p>Enter any ada value for which you want to calculate and simulate the yield.</p>
 				<p>The gray number shows the result of your previous simulation so you can compare different parameter values.</p>
-				<p>Learn more about <a href="https://cardano.org/stake-pool-delegation/" target="_blank">Proof of Stake delegations of your ada</a>, 
-				  how to <a href="https://cardano.org/stake-pool-operation" target="_blank">operate a staking pool </a>, 
-				  and a good read about the <a href="https://cexplorer.io/article/cardano-s-liquid-staking-from-a-security-perspective" target="_blank">slashing free, liquid staking</a> capabilities offered to all ada holders.
+				<p>Learn more about <a href="https://cardano.org/stake-pool-delegation/" target="_blank">Proof of Stake delegations of your ada</a>,
+					how to <a href="https://cardano.org/stake-pool-operation" target="_blank">operate a staking pool </a>,
+					and a good read about the <a href="https://cexplorer.io/article/cardano-s-liquid-staking-from-a-security-perspective" target="_blank">slashing free, liquid staking</a> capabilities offered to all ada holders.
 				</p>
 			</div>
 		],
@@ -795,35 +1090,57 @@ export const infoSections = {
 				<p>ADAをステーキングプールに委任することで、自動的かつ定期的に報酬を受け取ることができます。</p>
 				<p>任意のADA値を入力し、利回りを計算・シミュレーションしてください。</p>
 				<p>灰色の数値は前回のシミュレーション結果を示しており、異なるパラメーター値を比較できるようになっています。</p>
-				<p>詳しく知る:  
-					ADAの<a href="https://cardano.org/stake-pool-delegation/" target="_blank">プルーフ・オブ・ステーク（PoS）委任</a>について  
-					<a href="https://cardano.org/stake-pool-operation" target="_blank">ステーキングプールの運用方法</a>  
+				<p>詳しく知る:
+					ADAの<a href="https://cardano.org/stake-pool-delegation/" target="_blank">プルーフ・オブ・ステーク（PoS）委任</a>について
+					<a href="https://cardano.org/stake-pool-operation" target="_blank">ステーキングプールの運用方法</a>
 					すべてのADA保有者に提供される、<a href="https://cexplorer.io/article/cardano-s-liquid-staking-from-a-security-perspective" target="_blank">スラッシングなしのリキッドステーキング</a>に関する解説
 				</p>
 			</div>
+		],
+		"de": [
+			<div key="info_section_1_de" className="space-y-2">
+				<h4 className="text-md font-medium">Information</h4>
+				<p>Dieser Rechner basiert auf einer <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method" target="_blank">Monte Carlo Simulation</a> in Verbindung mit Echtzeitdaten des Cardano Mainnet Netzwerkes.</p>
+				<p>Du kannst dein ADA an einen Staking-Pool delegieren und erhältst automatische und regelmäßige Belohnungen.</p>
+				<p>Gib einen beliebigen ADA-Betrag ein, für den du die Rendite berechnen und simulieren möchtest.</p>
+				<p>Zur Vergleichbarkeit zwischen den Simulationen, zeigt die graue Zahl das Ergebnis der vorherigen Simulation an.</p>
+				<p>Weiterführende Informationen zu <a href="https://cardano.org/stake-pool-delegation/" target="_blank">Proof of Stake (PoS)</a>, wie man
+					einen <a href="https://cardano.org/stake-pool-operation" target="_blank">Stake Pool</a>  betreibt und was es bedeutet, dass die delegierten ADA frei verfügbar und jederzeit liquide sind, dass
+					sogenannte <a href="https://cexplorer.io/article/cardano-s-liquid-staking-from-a-security-perspective" target="_blank">liquid staking</a>, findest du unter den angegebenen Links.
+				</p>
+			</div>
 		]
-	} ,
+	},
 
 	"info_section_2": {
 		"en": [
 			<div key="info_section_2_en" className="space-y-2">
 				<h4 className="text-md font-medium">Staking Pools Info</h4>
-				<p>You can actively participate with your ada tokens in the liquid staking mechanism and thus the <a href="https://eprint.iacr.org/2016/889.pdf" target="_blank">provable security of Cardano</a>.</p> 
-				   <p>The <a href="https://cardano.org/ouroboros/" target="_blank">Ouroboros protocol</a> provides rules that rely on the rational behavior of ada holders delegating to stake pools that yield the <a href="https://github.com/cardano-foundation/cardano-economic-parameter-insights/blob/main/whitepaper.md#pool-incentives-for-stake-and-pledge" target="_blank">maximum staking reward</a>.</p>
-				<p>Select up to 3 different real pools to compare the differences for the stake amount you initially set.</p> 
+				<p>You can actively participate with your ada tokens in the liquid staking mechanism and thus the <a href="https://eprint.iacr.org/2016/889.pdf" target="_blank">provable security of Cardano</a>.</p>
+				<p>The <a href="https://cardano.org/ouroboros/" target="_blank">Ouroboros protocol</a> provides rules that rely on the rational behavior of ada holders delegating to stake pools that yield the <a href="https://github.com/cardano-foundation/cardano-economic-parameter-insights/blob/main/whitepaper.md#pool-incentives-for-stake-and-pledge" target="_blank">maximum staking reward</a>.</p>
+				<p>Select up to 3 different real pools to compare the differences for the stake amount you initially set.</p>
 				<p>You will see that the pools have different characteristics and qualities that can make a significant difference to you.</p>
 			</div>
 		],
 		"jp": [
 			<div key="info_section_2_jp" className="space-y-2">
 				<h4 className="text-md font-medium">ステーキングプール情報</h4>
-				<p>あなたのADAトークンを使用してリキッドステーキングメカニズムに積極的に参加し、<a href="https://eprint.iacr.org/2016/889.pdf" target="_blank">Cardanoの証明可能なセキュリティ</a>を支えることができます。</p> 
+				<p>あなたのADAトークンを使用してリキッドステーキングメカニズムに積極的に参加し、<a href="https://eprint.iacr.org/2016/889.pdf" target="_blank">Cardanoの証明可能なセキュリティ</a>を支えることができます。</p>
 				<p><a href="https://cardano.org/ouroboros/" target="_blank">Ouroborosプロトコル</a>は、ADA保有者が合理的に行動し、<a href="https://github.com/cardano-foundation/cardano-economic-parameter-insights/blob/main/whitepaper.md#pool-incentives-for-stake-and-pledge" target="_blank">最大のステーキング報酬</a>を得られるステークプールに委任することを前提としたルールを提供します。</p>
-				<p>最大3つの異なる実際のステークプールを選択し、最初に設定したステーキング額に対する違いを比較できます。</p> 
+				<p>最大3つの異なる実際のステークプールを選択し、最初に設定したステーキング額に対する違いを比較できます。</p>
 				<p>プールごとに異なる特徴や品質があり、それがあなたにとって大きな違いを生むことがわかるでしょう。</p>
 			</div>
+		],
+		"de": [
+			<div key="info_section_2_de" className="space-y-2">
+				<h4 className="text-md font-medium">Informationen zu den Staking Pools</h4>
+				<p>Partizipiere mit deine ADA Token durch den Liquid-Staking-Mechanismus auf dem nachweislich <a href="https://eprint.iacr.org/2016/889.pdf" target="_blank">sicheren Cardano Netzwerk</a>.</p>
+				<p>Das <a href="https://cardano.org/ouroboros/" target="_blank">Ouroboros-Protokoll</a> legt Regeln fest, die auf dem rationalen Verhalten der ADA-Inhaber basieren, die ihre Coins an Stake-Pools delegieren, die die <a href="https://github.com/cardano-foundation/cardano-economic-parameter-insights/blob/main/whitepaper.md#pool-incentives-for-stake-and-pledge" target="_blank">maximalen Erträge</a> erzielen.</p>
+				<p>Wähle bis zu 3 Pools aus, um diese miteinander zu vergleichen.</p>
+				<p>Du wirst feststellen, dass die Pools unterschiedliche Merkmale aufweisen, die einen erheblichen Unterschied ausmachen können.</p>
+			</div>
 		]
-	} ,
+	},
 
 	"info_section_3": {
 		"en": [
@@ -841,21 +1158,29 @@ export const infoSections = {
 				<p>プールの規模やプレッジの割合に応じて利回りに差が生じます。  この詳細については、<a href="https://github.com/cardano-foundation/cardano-economic-parameter-insights/blob/main/whitepaper.md#pool-incentives-for-stake-and-pledge" target="_blank">パラメーターモデリングのホワイトペーパー</a>で詳しく説明されています。</p>
 				<p>新しい制限値を検討するシミュレーションを可能にするために、このシミュレーターでは、現在の有効なグローバルブロックチェーンパラメーターおよび<a href="https://ucarecdn.com/621764d9-92a1-4849-baab-8b87089dd600/" target="_blank">ガードレール</a>文書に基づく制約を超えた値も設定できます。  例えば、最小固定手数料を170 ADA未満に設定することも可能です。</p>
 			</div>
+		],
+		"de": [
+			<div key="info_section_3_de" className="space-y-2">
+				<h4 className="text-md font-medium">Informationen zu den Staking Pool Parametern</h4>
+				<p>Dieser Bereich ist bereits mit den Werten des Pools gefüllt, den du oben zuletzt ausgewählt hast. Hier kannst du mit den Werte spielen und so die Auswirkungen auf die oben angezeigten Erträge simulieren.</p>
+				<p>Abhängig von der Poolgröße und dem Anteil des Eigenkapitals, ergeben sich Unterschiede bei den Renditen, die auch in diesem <a href="https://github.com/cardano-foundation/cardano-economic-parameter-insights/blob/main/whitepaper.md#pool-incentives-for-stake-and-pledge" target="_blank">Whitepaper zur Parametermodellierung</a> ausführlich erläutert werden.</p>
+				<p>Mit dem Simulator können auch Werte festgelegt werden, die derzeit gemäß den gültigen globalen Blockchain-Parametern und dem <a href="https://ucarecdn.com/621764d9-92a1-4849-baab-8b87089dd600/" target="_blank">Guardrails Dokument</a> nicht möglich sind. Das sind z. B. Mindestfixgebühren unter 170 ADA.</p>
+			</div>
 		]
-	} ,
+	},
 
 	"info_section_4": {
 		"en": [
 			<div key="info_section_4_en" className="space-y-2">
 				<h4 className="text-md font-medium">Info Blockchain Parameters</h4>
 				<p>In the currently deepest part of this reward calculator, you can get an impression of the parameters that have become part of <a href="https://developers.cardano.org/docs/governance/cardano-governance/governance-model/" target="_blank">governance on the Cardano PoS blockchain</a> with the Chang and Plomin hard fork in early 2025.  </p>
-				<p>The first part deals with the <span className="text-md font-medium">dynamic parameters</span> that can be changed 
+				<p>The first part deals with the <span className="text-md font-medium">dynamic parameters</span> that can be changed
 					with <a href="https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/" target="_blank">governance actions </a>
-					as defined in <a href="https://github.com/cardano-foundation/CIPs/tree/master/CIP-1694" target="_blank">CIP-1694</a>.  
+					as defined in <a href="https://github.com/cardano-foundation/CIPs/tree/master/CIP-1694" target="_blank">CIP-1694</a>.
 				</p>
-				<p>These values can be changed by a majority vote of the stake pool operators and/or DReps, and then apply to the entire blockchain, all stake pools and ada holders. 
-					A change can significantly influence the <a href="https://www.cardanofoundation.org/blog/releasing-an-open-source-rewards-calculation" target="_blank">reward calculation</a>, the game theory, 
-					the <a href="https://github.com/cardano-foundation/cardano-economic-parameter-insights/blob/main/whitepaper.md#actual-reserves-and-treasury-distribution" target="_blank">consumption of reserves</a>, 
+				<p>These values can be changed by a majority vote of the stake pool operators and/or DReps, and then apply to the entire blockchain, all stake pools and ada holders.
+					A change can significantly influence the <a href="https://www.cardanofoundation.org/blog/releasing-an-open-source-rewards-calculation" target="_blank">reward calculation</a>, the game theory,
+					the <a href="https://github.com/cardano-foundation/cardano-economic-parameter-insights/blob/main/whitepaper.md#actual-reserves-and-treasury-distribution" target="_blank">consumption of reserves</a>,
 					the filling of the treasury pot and also the individual ada holder&apos;s staking rewards.
 				</p>
 				<p>In the <span className="text-md font-medium">Fees & Remaining Reserves</span> section, the simulator also allows you to simulate a theoretical value of the transaction fees collected per epoch. The effective returns cannot be changed by governance actions, but depend largely on the adoption and integration of the blockchain in use cases. </p>
@@ -865,19 +1190,30 @@ export const infoSections = {
 			<div key="info_section_4_jp" className="space-y-2">
 				<h4 className="text-md font-medium">ブロックチェーンパラメーター情報</h4>
 				<p>この報酬計算ツールの最も詳細な部分では、2025年初頭のChangおよびPlominハードフォークにより、<a href="https://developers.cardano.org/docs/governance/cardano-governance/governance-model/" target="_blank">Cardano PoSブロックチェーンのガバナンス</a>に組み込まれたパラメーターについての理解を深めることができます。</p>
-				<p>最初の部分では、<a href="https://github.com/cardano-foundation/CIPs/tree/master/CIP-1694" target="_blank">CIP-1694</a>で定義されている  
-					<a href="https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/" target="_blank">ガバナンスアクション</a>を通じて変更可能な  
-					<span className="text-md font-medium">動的パラメーター</span>について扱います。 
+				<p>最初の部分では、<a href="https://github.com/cardano-foundation/CIPs/tree/master/CIP-1694" target="_blank">CIP-1694</a>で定義されている
+					<a href="https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/" target="_blank">ガバナンスアクション</a>を通じて変更可能な
+					<span className="text-md font-medium">動的パラメーター</span>について扱います。
 				</p>
-				<p>これらの値は、ステークプールオペレーターおよび/またはDRepの過半数の投票によって変更でき、その後、ブロックチェーン全体、すべてのステークプール、およびADA保有者に適用されます。  
-					変更は、<a href="https://www.cardanofoundation.org/blog/releasing-an-open-source-rewards-calculation" target="_blank">報酬計算</a>、ゲーム理論、  
-					<a href="https://github.com/cardano-foundation/cardano-economic-parameter-insights/blob/main/whitepaper.md#actual-reserves-and-treasury-distribution" target="_blank">準備金の消費</a>、  
+				<p>これらの値は、ステークプールオペレーターおよび/またはDRepの過半数の投票によって変更でき、その後、ブロックチェーン全体、すべてのステークプール、およびADA保有者に適用されます。
+					変更は、<a href="https://www.cardanofoundation.org/blog/releasing-an-open-source-rewards-calculation" target="_blank">報酬計算</a>、ゲーム理論、
+					<a href="https://github.com/cardano-foundation/cardano-economic-parameter-insights/blob/main/whitepaper.md#actual-reserves-and-treasury-distribution" target="_blank">準備金の消費</a>、
 					トレジャリーの蓄積、さらには個々のADA保有者のステーキング報酬にも大きな影響を与える可能性があります。
 				</p>
-				<p><span className="text-md font-medium">手数料 & 残りの準備金</span> セクションでは、シミュレーターを使用して、エポックごとに回収される取引手数料の理論値をシミュレーションすることができます。  
+				<p><span className="text-md font-medium">手数料 & 残りの準備金</span> セクションでは、シミュレーターを使用して、エポックごとに回収される取引手数料の理論値をシミュレーションすることができます。
 					実際のリターンはガバナンスアクションによって変更することはできませんが、主にブロックチェーンの採用とユースケースへの統合に依存します。</p>
 			</div>
+		],
+		"de": [
+			<div key="info_section_4_de" className="space-y-2">
+				<h4 className="text-md font-medium">Informatioenen zu den Blockchain Parametern</h4>
+				<p>Mit dem Rechner kannst du dir einen Überblick von den Parametern verschaffen, die mit dem Chang- und Plomin-Hardfork Anfang 2025 Teil des <a href="https://developers.cardano.org/docs/governance/cardano-governance/governance-model/" target="_blank">Abstimmungsrechts auf der Cardano Blockchain</a> geworden sind.</p>
+				<p>Der erste Teil beschäftigt sich mit den <span className="text-md font-medium">dynamischen Parametern</span>, die per <a href="https://developers.cardano.org/docs/governance/cardano-governance/governance-actions/" target="_blank">Akklamation</a> unter Berücksichtigung von <a href="https://github.com/cardano-foundation/CIPs/tree/master/CIP-1694" target="_blank">CIP-1694</a> geändert werden können.</p>
+				<p>Diese Werte können durch eine Mehrheitsentscheidung der Stake Pool Betreiber und/oder DReps geändert werden und gelten dann fortan für die gesamte Cardano Blockchain und ihrer Teilnehmer (Stake Pools und ADA Inhaber).
+					Eine Änderung kann die <a href="https://www.cardanofoundation.org/blog/releasing-an-open-source-rewards-calculation" target="_blank">Ertragsberechnung</a>, die Spieltheorie,
+					den Verbrauch von <a href="https://github.com/cardano-foundation/cardano-economic-parameter-insights/blob/main/whitepaper.md#actual-reserves-and-treasury-distribution" target="_blank">Rücklagen und Reserven</a> und dem Zweck der Reserve sowie die Ertragsberechnung der einzelnen ADA Inhaber erheblich beeinflussen.</p>
+				<p>Im Abschnitt <span className="text-md font-medium">Gebühren und verbleibende Reserven</span> ermöglicht der Simulator außerdem die Simulation eines theoretischen Werts der pro Epoche erhobenen Transaktionsgebühren. Die effektiven Renditen können nicht durch Abstimmungen geändert werden, sondern hängen weitgehend von der Einführung und Integration der Blockchain in Anwendungsfällen ab.</p>
+			</div>
 		]
-	} ,
+	},
 
 }
